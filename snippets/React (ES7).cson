@@ -39,15 +39,32 @@
         }
       }
     """
+  'React stateless component (ES7)':
+    'prefix': 'rcs'
+    'body': """
+      import React, { PropTypes } from 'react';
 
-    "React: stateless component (ES7)":
-      prefix: "rcs"
-      body: """
-        import React, { PropTypes } from 'react';
+      const $1 = (${2:props}) => (
+        ${3:<div />}
+      );
 
-        const $1 = (${2:props}) => (
-          ${3:<div />}
-        );
+      export default ${1};
+    """
 
-        export default ${1};
-      """
+  'React ES7 Component Test':
+    'prefix': 'rctest'
+    'body': """
+      import React, { Component, PropTypes } from 'react';
+
+      export default class ${1:MyComponent} extends Component {
+        static propTypes = {
+          ${2:viewer}: PropTypes.${3:object}.isRequired
+        };
+
+        render() {
+          return (
+            ${4:<div>MyComponent</div>}
+          );
+        }
+      }
+    """
