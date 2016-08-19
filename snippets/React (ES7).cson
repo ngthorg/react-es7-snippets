@@ -41,6 +41,96 @@
       }
     """
 
+  'React ES7 Redux Container':
+    'prefix': 'rcon'
+    'body': """
+      import React, { Component, PropTypes } from 'react';
+      import { connect } from 'react-redux';
+
+      class ${1:MyComponent} extends Component {
+        static propTypes = {
+          ${4}
+        };
+
+        constructor(props) {
+          super(props);
+
+          this.state = { };
+        }
+
+        render() {
+          return (
+            ${5:<div>MyComponent</div>}
+          );
+        }
+      }
+
+      const mapStateToProps = (state) => ({
+        ${2}
+      });
+
+      const mapDispatchToProps = (dispatch) => ({
+        ${3}
+      });
+
+      export default connect(mapStateToProps, mapDispatchToProps)(${1:MyComponent});
+    """
+
+  'React ES7 Component Relay':
+    'prefix': 'rcrelay'
+    'body': """
+      import React, { Component, PropTypes } from 'react';
+      import Relay from 'react-relay';
+
+      class ${1:MyComponent} extends Component {
+        static propTypes = {
+          ${2:viewer}: PropTypes.object.isRequired,
+        };
+
+        render() {
+          return (
+            ${5:<div>MyComponent</div>}
+          );
+        }
+      }
+
+      export default Relay.createContainer(${1:MyComponent}, {
+        fragments: {
+          ${2:viewer}: () => Relay.QL`
+      			fragment on ${3:Viewer} {
+      				${4: id}
+      			}
+          `,
+        },
+      });
+    """
+
+  'React ES7 Component export':
+    'prefix': 'rce'
+    'body': """
+      import React, { Component, PropTypes } from 'react';
+
+      class ${1:Class} extends Component {
+        static propTypes = {
+          ${2}
+        };
+
+        constructor(props) {
+          super(props);
+
+          this.state = { };
+        }
+
+        render() {
+          return (
+            ${3:<div>MyComponent</div>}
+          );
+        }
+      }
+
+      export default ${1:Class};
+    """
+
   'React stateless component (ES7)':
     'prefix': 'rcs'
     'body': """
