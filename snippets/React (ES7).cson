@@ -3,6 +3,7 @@
     'prefix': 'rc'
     'body': """
       import React, { Component, PropTypes } from 'react';
+
       export default class ${1:MyComponent} extends Component {
         static propTypes = {
           ${2}
@@ -19,6 +20,7 @@
     'prefix': 'rcc'
     'body': """
       import React, { Component, PropTypes } from 'react';
+
       export default class ${1:MyComponent} extends Component {
         static propTypes = {
           ${2}
@@ -26,6 +28,8 @@
 
         constructor(props) {
           super(props);
+
+          this.state = { };
         }
 
         render() {
@@ -35,3 +39,15 @@
         }
       }
     """
+
+    "React: stateless component (ES7)":
+      prefix: "rcs"
+      body: """
+        import React, { PropTypes } from 'react';
+
+        const $1 = (${2:props}) => (
+          ${3:<div />}
+        );
+
+        export default ${1};
+      """
