@@ -16,6 +16,7 @@
         }
       }
     """
+
   'React ES7 Component with Constructor':
     'prefix': 'rcc'
     'body': """
@@ -39,6 +40,7 @@
         }
       }
     """
+
   'React stateless component (ES7)':
     'prefix': 'rcs'
     'body': """
@@ -48,23 +50,145 @@
         ${3:<div />}
       );
 
+      ${1}.propTypes = {
+
+      };
+
       export default ${1};
     """
 
-  'React ES7 Component Test':
-    'prefix': 'rctest'
+  'React componentWillMount (ES7)':
+    'prefix': 'cwm'
     'body': """
-      import React, { Component, PropTypes } from 'react';
-
-      export default class ${1:MyComponent} extends Component {
-        static propTypes = {
-          ${2:viewer}: PropTypes.${3:object}.isRequired
-        };
-
-        render() {
-          return (
-            ${4:<div>MyComponent</div>}
-          );
-        }
+      componentWillMount() {
+        ${1}
       }
     """
+
+  'React componentDidMount (ES7)':
+    'prefix': 'cdm'
+    'body': """
+      componentDidMount() {
+        ${1}
+      }
+    """
+
+  'React componentWillReceiveProps (ES7)':
+    'prefix': 'cwr'
+    'body': """
+      componentWillReceiveProps(nextProps) {
+        ${1}
+      }
+    """
+
+  'React shouldComponentUpdate (ES7)':
+    'prefix': 'scu'
+    'body': """
+      shouldComponentUpdate(nextProps, nextState) {
+        ${1}
+      }
+    """
+
+  'React componentWillUpdate (ES7)':
+    'prefix': 'cwu'
+    'body': """
+      componentWillUpdate(nextProps, nextState) {
+        ${1}
+      }
+    """
+
+  'React componentDidUpdate (ES7)':
+    'prefix': 'cdu'
+    'body': """
+      componentDidUpdate(prevProps, prevState) {
+        ${1}
+      }
+    """
+
+  'React componentWillUnmount (ES7)':
+    'prefix': 'cwun'
+    'body': """
+      componentWillUnmount() {
+        ${1}
+      }
+    """
+
+  'React this.props':
+    'prefix': 'props'
+    'body': 'this.props${1}'
+
+  'React this.state':
+    'prefix': 'state'
+    'body': 'this.state${1}'
+
+  'React cx({ ... }) (ES7)':
+    'prefix': 'cx'
+    'body': """
+      cx({
+        ${1}: ${2},
+      });
+    """
+
+  'React static defaultProps = { ... } (ES7)':
+    'prefix': 'dp'
+    'body': """
+      static defaultProps = {
+        ${1}
+      };
+    """
+
+  'React static propTypes = { ... } (ES7)':
+    'prefix': 'pt'
+    'body': """
+      static propTypes = {
+        ${1}: PropTypes.${2:string},
+      };
+    """
+
+  'React setState({ ... }) (ES7)':
+    'prefix': 'sst'
+    'body': """
+      this.setState({
+        ${1}: ${2},
+      });
+    """
+
+  'PropTypes.func.isRequired':
+    'prefix': 'ptf'
+    'body': 'PropTypes.func.isRequired'
+
+  'PropTypes.string.isRequired':
+    'prefix': 'pts'
+    'body': 'PropTypes.string.isRequired'
+
+  'PropTypes.object.isRequired':
+    'prefix': 'pto'
+    'body': 'PropTypes.object.isRequired'
+
+  'PropTypes.array.isRequired':
+    'prefix': 'pta'
+    'body': 'PropTypes.array.isRequired'
+
+  'PropTypes.bool.isRequired':
+    'prefix': 'ptb'
+    'body': 'PropTypes.bool.isRequired'
+
+  'PropTypes.number.isRequired':
+    'prefix': 'ptn'
+    'body': 'PropTypes.number.isRequired'
+
+  'PropTypes.node.isRequired':
+    'prefix': 'ptnode'
+    'body': 'PropTypes.node.isRequired'
+
+  'PropTypes.element.isRequired':
+    'prefix': 'pte'
+    'body': 'PropTypes.element.isRequired'
+
+  'PropTypes.any.isRequired':
+    'prefix': 'ptany'
+    'body': 'PropTypes.any.isRequired'
+
+  'PropTypes.shape({...}).isRequired':
+    'prefix': 'ptshape'
+    'body': 'PropTypes.shape({ $1: $2 }).isRequired'
