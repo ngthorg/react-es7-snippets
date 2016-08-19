@@ -1,0 +1,18 @@
+{
+  "name": "react-es7-snippets",
+  "version": "0.1.0",
+  "description": "React ES7 snippets for atom",
+  "keywords": [
+    "react",
+    "ES7",
+    "babel",
+    "snippets"
+  ],
+  "repository": "https://github.com/ngthorg/react-es7-snippets",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+  }
+}

@@ -1,0 +1,37 @@
+'.source.js.jsx':
+  'React ES7 Component':
+    'prefix': 'rc'
+    'body': """
+      import React, { Component, PropTypes } from 'react';
+      export default class ${1:MyComponent} extends Component {
+        static propTypes = {
+          ${2}
+        };
+
+        render() {
+          return (
+            ${3:<div>MyComponent</div>}
+          );
+        }
+      }
+    """
+  'React ES7 Component with Constructor':
+    'prefix': 'rcc'
+    'body': """
+      import React, { Component, PropTypes } from 'react';
+      export default class ${1:MyComponent} extends Component {
+        static propTypes = {
+          ${2}
+        };
+
+        constructor(props) {
+          super(props);
+        }
+
+        render() {
+          return (
+            ${3:<div>MyComponent</div>}
+          );
+        }
+      }
+    """
