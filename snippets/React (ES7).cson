@@ -148,7 +148,7 @@
     """
 
   'React ES7 Functional Arrow Component':
-    'prefix': 'rfuncarrow'
+    'prefix': 'rcarrow'
     'body': """
       import React, { PropTypes } from 'react';
 
