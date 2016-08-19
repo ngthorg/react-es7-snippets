@@ -280,30 +280,6 @@
       });
     """
 
-  # PropType function
-  'PropTypes.func':
-    'prefix': 'ptf'
-    'body': 'PropTypes.func'
-  'PropTypes.func.isRequired':
-    'prefix': 'ptfr'
-    'body': 'PropTypes.func.isRequired'
-
-  # PropType string
-  'PropTypes.string':
-    'prefix': 'pts'
-    'body': 'PropTypes.string'
-  'PropTypes.string.isRequired':
-    'prefix': 'ptsr'
-    'body': 'PropTypes.string.isRequired'
-
-  # PropType object
-  'PropTypes.object':
-    'prefix': 'pto'
-    'body': 'PropTypes.object'
-  'PropTypes.object.isRequired':
-    'prefix': 'ptor'
-    'body': 'PropTypes.object.isRequired'
-
   # PropType array
   'PropTypes.array':
     'prefix': 'pta'
@@ -320,6 +296,14 @@
     'prefix': 'ptbr'
     'body': 'PropTypes.bool.isRequired'
 
+  # PropType function
+  'PropTypes.func':
+    'prefix': 'ptf'
+    'body': 'PropTypes.func'
+  'PropTypes.func.isRequired':
+    'prefix': 'ptfr'
+    'body': 'PropTypes.func.isRequired'
+
   # PropType number
   'PropTypes.number':
     'prefix': 'ptn'
@@ -327,6 +311,22 @@
   'PropTypes.number.isRequired':
     'prefix': 'ptnr'
     'body': 'PropTypes.number.isRequired'
+
+  # PropType object
+  'PropTypes.object':
+    'prefix': 'pto'
+    'body': 'PropTypes.object'
+  'PropTypes.object.isRequired':
+    'prefix': 'ptor'
+    'body': 'PropTypes.object.isRequired'
+
+  # PropType string
+  'PropTypes.string':
+    'prefix': 'pts'
+    'body': 'PropTypes.string'
+  'PropTypes.string.isRequired':
+    'prefix': 'ptsr'
+    'body': 'PropTypes.string.isRequired'
 
   # PropType node
   'PropTypes.node':
@@ -344,13 +344,53 @@
     'prefix': 'pter'
     'body': 'PropTypes.element.isRequired'
 
-  # PropType any
-  'PropTypes.any':
-    'prefix': 'ptany'
-    'body': 'PropTypes.any'
-  'PropTypes.any.isRequired':
-    'prefix': 'ptanyr'
-    'body': 'PropTypes.any.isRequired'
+  # PropType instanceOf
+  'PropTypes.instanceOf':
+    'prefix': 'pti'
+    'body': 'PropTypes.instanceOf(${1})'
+  'PropTypes.instanceOf.isRequired':
+    'prefix': 'ptir'
+    'body': 'PropTypes.instanceOf(${1}).isRequired'
+
+  # PropType oneOf
+  'PropTypes.oneOf':
+    'prefix': 'ptone'
+    'body': 'PropTypes.oneOf([${1}])'
+  'PropTypes.oneOf.isRequired':
+    'prefix': 'ptoner'
+    'body': 'PropTypes.oneOf([${1}]).isRequired'
+
+  # PropType oneOfType
+  'PropTypes.oneOfType':
+    'prefix': 'ptonet'
+    'body': """
+      PropTypes.oneOfType([
+        ${1}
+      ])
+    """
+  'PropTypes.oneOfType.isRequired':
+    'prefix': 'ptonetr'
+    'body': """
+      PropTypes.oneOfType([
+        ${1}
+      ]).isRequired
+    """
+
+  # PropType arrayOf
+  'PropTypes.arrayOf':
+    'prefix': 'ptao'
+    'body': 'PropTypes.arrayOf(${1})'
+  'PropTypes.arrayOf.isRequired':
+    'prefix': 'ptaor'
+    'body': 'PropTypes.arrayOf(${1}).isRequired'
+
+  # PropType objectOf
+  'PropTypes.objectOf':
+    'prefix': 'ptoo'
+    'body': 'PropTypes.objectOf(${1})'
+  'PropTypes.objectOf.isRequired':
+    'prefix': 'ptoor'
+    'body': 'PropTypes.objectOf(${1}).isRequired'
 
   # PropType shape
   'PropTypes.shape({...})':
@@ -367,3 +407,11 @@
         ${1}
       }).isRequired
     """
+
+  # PropType any
+  'PropTypes.any':
+    'prefix': 'ptany'
+    'body': 'PropTypes.any'
+  'PropTypes.any.isRequired':
+    'prefix': 'ptanyr'
+    'body': 'PropTypes.any.isRequired'
