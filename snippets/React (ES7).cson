@@ -98,7 +98,7 @@
         fragments: {
           ${2:viewer}: () => Relay.QL`
       			fragment on ${3:Viewer} {
-      				${4: id}
+      				${4:id}
       			}
           `,
         },
@@ -131,20 +131,57 @@
       export default ${1:Class};
     """
 
-  'React stateless component (ES7)':
-    'prefix': 'rcs'
+  'React ES7 Functional Component':
+    'prefix': 'rfunc'
     'body': """
       import React, { PropTypes } from 'react';
 
-      const $1 = (${2:props}) => (
-        ${3:<div />}
+      export default function ${1}(${3:props}) {
+        return (
+          ${4:<div>MyComponent</div>}
+        );
+      }
+
+      ${1}.propTypes = {
+        ${2}
+      };
+    """
+
+  'React ES7 Functional Arrow Component':
+    'prefix': 'rfuncarrow'
+    'body': """
+      import React, { PropTypes } from 'react';
+
+      const $1 = (${3:props}) => (
+        ${4:<div />}
       );
 
       ${1}.propTypes = {
-
+        ${2}
       };
 
       export default ${1};
+    """
+
+  'React ES7 Constructor':
+    'prefix': 'rconst'
+    'body': """
+      constructor(props) {
+        super(props);
+        ${1}
+      }
+    """
+
+  'React ES6 bind method to this':
+    'prefix': 'rbm6',
+    'body': """
+      this.${1} = this.${1}.bind(this);
+    """
+
+  'React ES7 bind method to this':
+    'prefix': 'rbm',
+    'body': """
+      this.${1} = ::this.${1};
     """
 
   'React componentWillMount (ES7)':
@@ -243,42 +280,90 @@
       });
     """
 
-  'PropTypes.func.isRequired':
+  # PropType function
+  'PropTypes.func':
     'prefix': 'ptf'
+    'body': 'PropTypes.func'
+  'PropTypes.func.isRequired':
+    'prefix': 'ptfr'
     'body': 'PropTypes.func.isRequired'
 
-  'PropTypes.string.isRequired':
+  # PropType string
+  'PropTypes.string':
     'prefix': 'pts'
+    'body': 'PropTypes.string'
+  'PropTypes.string.isRequired':
+    'prefix': 'ptsr'
     'body': 'PropTypes.string.isRequired'
 
-  'PropTypes.object.isRequired':
+  # PropType object
+  'PropTypes.object':
     'prefix': 'pto'
+    'body': 'PropTypes.object'
+  'PropTypes.object.isRequired':
+    'prefix': 'ptor'
     'body': 'PropTypes.object.isRequired'
 
+  # PropType array
+  'PropTypes.array':
+    'prefix': 'pta'
+    'body': 'PropTypes.array'
   'PropTypes.array.isRequired':
     'prefix': 'pta'
     'body': 'PropTypes.array.isRequired'
 
-  'PropTypes.bool.isRequired':
+  # PropType bool
+  'PropTypes.bool':
     'prefix': 'ptb'
+    'body': 'PropTypes.bool'
+  'PropTypes.bool.isRequired':
+    'prefix': 'ptbr'
     'body': 'PropTypes.bool.isRequired'
 
-  'PropTypes.number.isRequired':
+  # PropType number
+  'PropTypes.number':
     'prefix': 'ptn'
+    'body': 'PropTypes.number'
+  'PropTypes.number.isRequired':
+    'prefix': 'ptnr'
     'body': 'PropTypes.number.isRequired'
 
-  'PropTypes.node.isRequired':
+  # PropType node
+  'PropTypes.node':
     'prefix': 'ptnode'
+    'body': 'PropTypes.node'
+  'PropTypes.node.isRequired':
+    'prefix': 'ptnoder'
     'body': 'PropTypes.node.isRequired'
 
-  'PropTypes.element.isRequired':
+  # PropType element
+  'PropTypes.element':
     'prefix': 'pte'
+    'body': 'PropTypes.element'
+  'PropTypes.element.isRequired':
+    'prefix': 'pter'
     'body': 'PropTypes.element.isRequired'
 
-  'PropTypes.any.isRequired':
+  # PropType any
+  'PropTypes.any':
     'prefix': 'ptany'
+    'body': 'PropTypes.any'
+  'PropTypes.any.isRequired':
+    'prefix': 'ptanyr'
     'body': 'PropTypes.any.isRequired'
 
-  'PropTypes.shape({...}).isRequired':
+  # PropType shape
+  'PropTypes.shape({...})':
     'prefix': 'ptshape'
-    'body': 'PropTypes.shape({ $1: $2 }).isRequired'
+    'body': """
+      PropTypes.shape({
+        ${1}
+      })
+    """
+  'PropTypes.shape({...}).isRequired':
+    'prefix': 'ptshaper'
+    'body': """
+      PropTypes.shape({
+        ${1}
+      }).isRequired
+    """
