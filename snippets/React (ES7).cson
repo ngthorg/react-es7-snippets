@@ -148,7 +148,7 @@
     """
 
   'React ES7 Functional Arrow Component':
-    'prefix': 'rcarrow'
+    'prefix': 'rarrow'
     'body': """
       import React, { PropTypes } from 'react';
 
@@ -173,13 +173,13 @@
     """
 
   'React ES6 bind method to this':
-    'prefix': 'rbm6',
+    'prefix': 'rbm',
     'body': """
       this.${1} = this.${1}.bind(this);
     """
 
   'React ES7 bind method to this':
-    'prefix': 'rbm',
+    'prefix': 'rbm7',
     'body': """
       this.${1} = ::this.${1};
     """
@@ -285,7 +285,7 @@
     'prefix': 'pta'
     'body': 'PropTypes.array'
   'PropTypes.array.isRequired':
-    'prefix': 'pta'
+    'prefix': 'ptar'
     'body': 'PropTypes.array.isRequired'
 
   # PropType bool
@@ -314,10 +314,10 @@
 
   # PropType object
   'PropTypes.object':
-    'prefix': 'pto'
+    'prefix': 'ptobj'
     'body': 'PropTypes.object'
   'PropTypes.object.isRequired':
-    'prefix': 'ptor'
+    'prefix': 'ptobjr'
     'body': 'PropTypes.object.isRequired'
 
   # PropType string
@@ -354,22 +354,22 @@
 
   # PropType oneOf
   'PropTypes.oneOf':
-    'prefix': 'ptone'
+    'prefix': 'ptof'
     'body': 'PropTypes.oneOf([${1}])'
   'PropTypes.oneOf.isRequired':
-    'prefix': 'ptoner'
+    'prefix': 'ptofr'
     'body': 'PropTypes.oneOf([${1}]).isRequired'
 
   # PropType oneOfType
   'PropTypes.oneOfType':
-    'prefix': 'ptonet'
+    'prefix': 'ptoft'
     'body': """
       PropTypes.oneOfType([
         ${1}
       ])
     """
   'PropTypes.oneOfType.isRequired':
-    'prefix': 'ptonetr'
+    'prefix': 'ptoftr'
     'body': """
       PropTypes.oneOfType([
         ${1}
@@ -386,10 +386,10 @@
 
   # PropType objectOf
   'PropTypes.objectOf':
-    'prefix': 'ptoo'
+    'prefix': 'ptobjo'
     'body': 'PropTypes.objectOf(${1})'
   'PropTypes.objectOf.isRequired':
-    'prefix': 'ptoor'
+    'prefix': 'ptobjor'
     'body': 'PropTypes.objectOf(${1}).isRequired'
 
   # PropType shape
