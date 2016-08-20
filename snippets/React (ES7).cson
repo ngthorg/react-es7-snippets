@@ -1,5 +1,26 @@
 '.source.js.jsx':
   'React ES7 Component':
+    'prefix': 'imr'
+    'body': """
+      import React from 'react';
+      ${0}
+    """
+
+  'React ES7 Component':
+    'prefix': 'imrc'
+    'body': """
+      import React, { Component } from 'react';
+      ${0}
+    """
+
+  'React ES7 Component':
+    'prefix': 'imrcp'
+    'body': """
+      import React, { Component, PropTypes } from 'react';
+      ${0}
+    """
+
+  'React ES7 Component':
     'prefix': 'rc'
     'body': """
       import React, { Component, PropTypes } from 'react';
