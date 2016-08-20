@@ -1,23 +1,23 @@
 '.source.js.jsx':
-  'React ES7 Component':
+  'import React':
     'prefix': 'imr'
     'body': """
       import React from 'react';
-      ${0}
+      ${1}
     """
 
-  'React ES7 Component':
+  'import React, { Component }':
     'prefix': 'imrc'
     'body': """
       import React, { Component } from 'react';
-      ${0}
+      ${1}
     """
 
-  'React ES7 Component':
+  'import React, { Component, PropTypes }':
     'prefix': 'imrcp'
     'body': """
       import React, { Component, PropTypes } from 'react';
-      ${0}
+      ${1}
     """
 
   'React ES7 Component':
