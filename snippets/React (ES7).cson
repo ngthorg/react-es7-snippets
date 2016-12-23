@@ -51,19 +51,21 @@
         constructor(props) {
           super(props);
 
-          this.state = { };
+          this.state = {
+            ${3}
+          };
         }
 
         render() {
           return (
-            ${3:<div>MyComponent</div>}
+            ${4:<div>MyComponent</div>}
           );
         }
       }
     """
 
   'React ES7 Redux Container':
-    'prefix': 'rcon'
+    'prefix': 'rcredux'
     'body': """
       import React, { Component, PropTypes } from 'react';
       import { connect } from 'react-redux';
@@ -76,12 +78,14 @@
         constructor(props) {
           super(props);
 
-          this.state = { };
+          this.state = {
+            ${5}
+          };
         }
 
         render() {
           return (
-            ${5:<div>MyComponent</div>}
+            ${6:<div>MyComponent</div>}
           );
         }
       }
@@ -97,7 +101,37 @@
       export default connect(mapStateToProps, mapDispatchToProps)(${1:MyComponent});
     """
 
-  'React ES7 Component Relay':
+  'React ES7 Redux Container Decorator':
+    'prefix': 'rcreduxd'
+    'body': """
+      import React, { Component, PropTypes } from 'react';
+      import { connect } from 'react-redux';
+
+      @connect(
+        state => ({ ${2} }),
+      )
+      export default class ${1:MyComponent} extends Component {
+        static propTypes = {
+          ${3}
+        };
+
+        constructor(props) {
+          super(props);
+
+          this.state = {
+            ${4}
+          };
+        }
+
+        render() {
+          return (
+            ${5:<div>MyComponent</div>}
+          );
+        }
+      }
+    """
+
+  'React ES7 Relay Container':
     'prefix': 'rcrelay'
     'body': """
       import React, { Component, PropTypes } from 'react';
@@ -126,6 +160,77 @@
       });
     """
 
+  'React ES7 Relay Container initialVariables':
+    'prefix': 'rcrelayv'
+    'body': """
+      import React, { Component, PropTypes } from 'react';
+      import Relay from 'react-relay';
+
+      class ${1:MyComponent} extends Component {
+        static propTypes = {
+          ${2:viewer}: PropTypes.object.isRequired,
+        };
+
+        render() {
+          return (
+            ${6:<div>MyComponent</div>}
+          );
+        }
+      }
+
+      export default Relay.createContainer(${1:MyComponent}, {
+        initialVariables: {
+          ${4}
+        },
+        fragments: {
+          ${2:viewer}: () => Relay.QL`
+      			fragment on ${3:Viewer} {
+      				${5:id}
+      			}
+          `,
+        },
+      });
+    """
+
+  'React ES7 Relay Container prepareVariables':
+    'prefix': 'rcrelayvp'
+    'body': """
+      import React, { Component, PropTypes } from 'react';
+      import Relay from 'react-relay';
+
+      class ${1:MyComponent} extends Component {
+        static propTypes = {
+          ${2:viewer}: PropTypes.object.isRequired,
+        };
+
+        render() {
+          return (
+            ${8:<div>MyComponent</div>}
+          );
+        }
+      }
+
+      export default Relay.createContainer(${1:MyComponent}, {
+        initialVariables: {
+          ${4}
+        },
+        prepareVariables(prevVariables) {
+          const ${5:include) = !!prevVariables.${6:variable};
+          return {
+            ...prevVariables,
+            ${5:include),
+          };
+        },
+        fragments: {
+          ${2:viewer}: () => Relay.QL`
+      			fragment on ${3:Viewer} {
+      				${7:id}
+      			}
+          `,
+        },
+      });
+    """
+
   'React ES7 Component export':
     'prefix': 'rce'
     'body': """
@@ -139,12 +244,14 @@
         constructor(props) {
           super(props);
 
-          this.state = { };
+          this.state = {
+            ${3}
+          };
         }
 
         render() {
           return (
-            ${3:<div>MyComponent</div>}
+            ${4:<div>MyComponent</div>}
           );
         }
       }
@@ -291,6 +398,30 @@
       static propTypes = {
         ${1}: PropTypes.${2:string},
       };
+    """
+
+  'React static contextTypes = { ... } (ES7)':
+    'prefix': 'ct'
+    'body': """
+      static contextTypes = {
+        ${1}: PropTypes.${2:string},
+      };
+    """
+
+  'React static childContextTypes = { ... } (ES7)':
+    'prefix': 'cct'
+    'body': """
+      static childContextTypes = {
+        ${1}: PropTypes.${2:string},
+      };
+    """
+
+  'React getChildContext (ES7)':
+    'prefix': 'gcct'
+    'body': """
+      getChildContext() {
+        return ${1}
+      }
     """
 
   'React setState({ ... }) (ES7)':
