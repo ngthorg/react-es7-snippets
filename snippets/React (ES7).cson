@@ -215,10 +215,10 @@
           ${4}
         },
         prepareVariables(prevVariables) {
-          const ${5:include) = !!prevVariables.${6:variable};
+          const ${5:include} = !!prevVariables.${6:variable};
           return {
             ...prevVariables,
-            ${5:include),
+            ${5:include},
           };
         },
         fragments: {
