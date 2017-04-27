@@ -6,6 +6,13 @@
       ${1}
     """
 
+  'import ReactDom':
+    'prefix': 'imrd'
+    'body': """
+      import ReactDom from 'react-dom';
+      ${1}
+    """
+
   'import React, { Component }':
     'prefix': 'imrc'
     'body': """
@@ -16,16 +23,37 @@
   'import React, { Component, PropTypes }':
     'prefix': 'imrcp'
     'body': """
-      import React, { Component, PropTypes } from 'react';
+      import React, { Component } from 'react';
+      import PropTypes from 'prop-types';
       ${1}
     """
 
   'React ES7 Component':
     'prefix': 'rc'
     'body': """
-      import React, { Component, PropTypes } from 'react';
+      import React, { Component } from 'react';
+
 
       export default class ${1:MyComponent} extends Component {
+
+        render() {
+          return (
+            ${2:<div>MyComponent</div>}
+          );
+        }
+
+      }
+    """
+
+  'React ES7 Component':
+    'prefix': 'rcp'
+    'body': """
+      import React, { Component } from 'react';
+      import PropTypes from 'prop-types';
+
+
+      export default class ${1:MyComponent} extends Component {
+
         static propTypes = {
           ${2}
         };
@@ -35,15 +63,44 @@
             ${3:<div>MyComponent</div>}
           );
         }
+
       }
     """
 
   'React ES7 Component with Constructor':
     'prefix': 'rcc'
     'body': """
-      import React, { Component, PropTypes } from 'react';
+      import React, { Component } from 'react';
+
 
       export default class ${1:MyComponent} extends Component {
+
+        constructor(props) {
+          super(props);
+
+          this.state = {
+            ${3}
+          };
+        }
+
+        render() {
+          return (
+            ${4:<div>MyComponent</div>}
+          );
+        }
+
+      }
+    """
+
+  'React ES7 Component with Constructor':
+    'prefix': 'rccp'
+    'body': """
+      import React, { Component } from 'react';
+      import PropTypes from 'prop-types';
+
+
+      export default class ${1:MyComponent} extends Component {
+
         static propTypes = {
           ${2}
         };
@@ -61,16 +118,20 @@
             ${4:<div>MyComponent</div>}
           );
         }
+
       }
     """
 
   'React ES7 Redux Container':
     'prefix': 'rcredux'
     'body': """
-      import React, { Component, PropTypes } from 'react';
+      import React, { Component } from 'react';
+      import PropTypes from 'prop-types';
       import { connect } from 'react-redux';
 
+
       class ${1:MyComponent} extends Component {
+
         static propTypes = {
           ${4}
         };
@@ -88,6 +149,7 @@
             ${6:<div>MyComponent</div>}
           );
         }
+
       }
 
       const mapStateToProps = (state) => ({
@@ -104,13 +166,16 @@
   'React ES7 Redux Container Decorator':
     'prefix': 'rcreduxd'
     'body': """
-      import React, { Component, PropTypes } from 'react';
+      import React, { Component } from 'react';
+      import PropTypes from 'prop-types';
       import { connect } from 'react-redux';
+
 
       @connect(
         state => ({ ${2} }),
       )
       export default class ${1:MyComponent} extends Component {
+
         static propTypes = {
           ${3}
         };
@@ -128,16 +193,20 @@
             ${5:<div>MyComponent</div>}
           );
         }
+
       }
     """
 
   'React ES7 Relay Container':
     'prefix': 'rcrelay'
     'body': """
-      import React, { Component, PropTypes } from 'react';
+      import React, { Component } from 'react';
+      import PropTypes from 'prop-types';
       import Relay from 'react-relay';
 
+
       class ${1:MyComponent} extends Component {
+
         static propTypes = {
           ${2:viewer}: PropTypes.object.isRequired,
         };
@@ -147,6 +216,7 @@
             ${5:<div>MyComponent</div>}
           );
         }
+
       }
 
       export default Relay.createContainer(${1:MyComponent}, {
@@ -163,10 +233,13 @@
   'React ES7 Relay Container initialVariables':
     'prefix': 'rcrelayv'
     'body': """
-      import React, { Component, PropTypes } from 'react';
+      import React, { Component } from 'react';
+      import PropTypes from 'prop-types';
       import Relay from 'react-relay';
 
+
       class ${1:MyComponent} extends Component {
+
         static propTypes = {
           ${2:viewer}: PropTypes.object.isRequired,
         };
@@ -176,6 +249,7 @@
             ${6:<div>MyComponent</div>}
           );
         }
+
       }
 
       export default Relay.createContainer(${1:MyComponent}, {
@@ -195,10 +269,13 @@
   'React ES7 Relay Container prepareVariables':
     'prefix': 'rcrelayvp'
     'body': """
-      import React, { Component, PropTypes } from 'react';
+      import React, { Component } from 'react';
+      import PropTypes from 'prop-types';
       import Relay from 'react-relay';
 
+
       class ${1:MyComponent} extends Component {
+
         static propTypes = {
           ${2:viewer}: PropTypes.object.isRequired,
         };
@@ -208,6 +285,7 @@
             ${8:<div>MyComponent</div>}
           );
         }
+
       }
 
       export default Relay.createContainer(${1:MyComponent}, {
@@ -234,9 +312,12 @@
   'React ES7 Component export':
     'prefix': 'rce'
     'body': """
-      import React, { Component, PropTypes } from 'react';
+      import React, { Component } from 'react';
+      import PropTypes from 'prop-types';
+
 
       class ${1:Class} extends Component {
+
         static propTypes = {
           ${2}
         };
@@ -254,6 +335,7 @@
             ${4:<div>MyComponent</div>}
           );
         }
+
       }
 
       export default ${1:Class};
@@ -262,7 +344,9 @@
   'React ES7 Functional Component':
     'prefix': 'rfunc'
     'body': """
-      import React, { PropTypes } from 'react';
+      import React from 'react';
+      import PropTypes from 'prop-types';
+
 
       export default function ${1}(${3:props}) {
         return (
@@ -278,7 +362,9 @@
   'React ES7 Functional Arrow Component':
     'prefix': 'rarrow'
     'body': """
-      import React, { PropTypes } from 'react';
+      import React from 'react';
+      import PropTypes from 'prop-types';
+
 
       const $1 = (${3:props}) => (
         ${4:<div />}
@@ -296,6 +382,7 @@
     'body': """
       constructor(props) {
         super(props);
+
         ${1}
       }
     """
