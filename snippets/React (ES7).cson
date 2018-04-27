@@ -45,7 +45,7 @@
       }
     """
 
-  'React ES7 Component':
+  'React ES7 Component Props':
     'prefix': 'rcp'
     'body': """
       import React, { Component } from 'react';
@@ -92,7 +92,7 @@
       }
     """
 
-  'React ES7 Component with Constructor':
+  'React ES7 Component with Constructor Props':
     'prefix': 'rccp'
     'body': """
       import React, { Component } from 'react';
