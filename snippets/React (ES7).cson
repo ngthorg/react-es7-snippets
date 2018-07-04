@@ -45,7 +45,7 @@
       }
     """
 
-  'React ES7 Component':
+  'React ES7 Component with PropTypes':
     'prefix': 'rcp'
     'body': """
       import React, { Component } from 'react';
