@@ -1,7 +1,7 @@
 {
   "name": "react-es7-snippets",
-  "version": "0.4.3",
-  "description": "React ES7 snippets for atom",
+  "version": "0.4.4",
+  "description": "React, Redux and Relay ES7 snippets for atom",
   "keywords": [
     "react",
     "redux",
