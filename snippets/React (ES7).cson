@@ -20,10 +20,47 @@
       ${1}
     """
 
-  'import React, { Component, PropTypes }':
+  'import React, { Component } & PropTypes':
     'prefix': 'imrcp'
     'body': """
       import React, { Component } from 'react'
+      import PropTypes from 'prop-types'
+      ${1}
+    """
+
+  'import React, { PureComponent }':
+    'prefix': 'imrpc'
+    'body': """
+      import React, { PureComponent } from 'react'
+      ${1}
+    """
+
+  'import React, { PureComponent } & PropTypes':
+    'prefix': 'imrpcp'
+    'body': """
+      import React, { PureComponent } from 'react'
+      import PropTypes from 'prop-types'
+      ${1}
+    """
+
+  'import React, { memo }':
+    'prefix': 'imrm'
+    'body': """
+      import React, { memo } from 'react'
+      ${1}
+    """
+
+  'import React, { memo } & PropTypes':
+    'prefix': 'imrmp'
+    'body': """
+      import React, { memo } from 'react'
+      import PropTypes from 'prop-types'
+      ${1}
+    """
+
+  'import PropTypes':
+    'prefix': 'impt'
+    'body': """
       import PropTypes from 'prop-types'
       ${1}
     """
@@ -34,30 +71,30 @@
       import React, { Component } from 'react'
 
       export default class ${1:MyComponent} extends Component {
-      \trender () {
-      \t\treturn (
-      \t\t\t${2:<div>MyComponent</div>}
-      \t\t)
-      \t}
+        render() {
+          return (
+            ${2:<div>MyComponent</div>}
+          )
+        }
       }
     """
 
-  'React ES7 Component with Props':
+  'React ES7 Component with Proptypes':
     'prefix': 'rcp'
     'body': """
       import React, { Component } from 'react'
       import PropTypes from 'prop-types'
 
       export default class ${1:MyComponent} extends Component {
-      \tstatic propTypes = {
-      \t\t${2}
-      \t}
+        static propTypes = {
+          ${2}
+        }
 
-      \trender () {
-      \t\treturn (
-      \t\t\t${3:<div>MyComponent</div>}
-      \t\t)
-      \t}
+        render() {
+          return (
+            ${3:<div>MyComponent</div>}
+          )
+        }
       }
     """
 
@@ -67,46 +104,446 @@
       import React, { Component } from 'react'
 
       export default class ${1:MyComponent} extends Component {
-      \tconstructor (props) {
-      \t\tsuper(props)
+        constructor(props) {
+          super(props)
 
-      \t\tthis.state = {
-      \t\t\t${3}
-      \t\t}
-      \t}
+          this.state = {
+            ${2}
+          }
+        }
 
-      \trender () {
-      \t\treturn (
-      \t\t\t${4:<div>MyComponent</div>}
-      \t\t)
-      \t}
+        render() {
+          return (
+            ${3:<div>MyComponent</div>}
+          )
+        }
       }
     """
 
-  'React ES7 Component with Constructor and Props':
+  'React ES7 Component with Constructor and Proptypes':
     'prefix': 'rccp'
     'body': """
       import React, { Component } from 'react'
       import PropTypes from 'prop-types'
 
       export default class ${1:MyComponent} extends Component {
-      \tstatic propTypes = {
-      \t\t${2}
-      \t}
+        static propTypes = {
+          ${2}
+        }
 
-      \tconstructor (props) {
-      \t\tsuper(props)
+        constructor(props) {
+          super(props)
 
-      \t\tthis.state = {
-      \t\t\t${3}
-      \t\t}
-      \t}
+          this.state = {
+            ${3}
+          }
+        }
 
-      \trender () {
-      \t\treturn (
-      \t\t\t${4:<div>MyComponent</div>}
-      \t\t)
-      \t}
+        render() {
+          return (
+            ${4:<div>MyComponent</div>}
+          )
+        }
+      }
+    """
+
+  'React ES7 Component export':
+    'prefix': 'rce'
+    'body': """
+      import React, { Component } from 'react'
+
+      class ${1:Class} extends Component {
+        render() {
+          return (
+            ${2:<div>MyComponent</div>}
+          )
+        }
+      }
+
+      export default ${1:Class}
+    """
+
+  'React ES7 Component with PropTypes export':
+    'prefix': 'rcpe'
+    'body': """
+      import React, { Component } from 'react'
+      import PropTypes from 'prop-types'
+
+      class ${1:Class} extends Component {
+        static propTypes = {
+          ${2}
+        }
+
+        render() {
+          return (
+            ${3:<div>MyComponent</div>}
+          )
+        }
+      }
+
+      export default ${1:Class}
+    """
+
+  'React ES7 Component with Constructor export':
+    'prefix': 'rcce'
+    'body': """
+      import React, { Component } from 'react'
+
+      class ${1:MyComponent} extends Component {
+        constructor(props) {
+          super(props)
+
+          this.state = {
+            ${2}
+          }
+        }
+
+        render() {
+          return (
+            ${3:<div>MyComponent</div>}
+          )
+        }
+      }
+
+      export default ${1:MyComponent}
+    """
+
+  'React ES7 Component with Constructor and PropTypes export':
+    'prefix': 'rccpe'
+    'body': """
+      import React, { Component } from 'react'
+      import PropTypes from 'prop-types'
+
+      class ${1:Class} extends Component {
+        static propTypes = {
+          ${2}
+        }
+
+        constructor(props) {
+          super(props)
+
+          this.state = {
+            ${3}
+          }
+        }
+
+        render() {
+          return (
+            ${4:<div>MyComponent</div>}
+          )
+        }
+      }
+
+      export default ${1:Class}
+    """
+
+  'React ES7 PureComponent':
+    'prefix': 'rpc'
+    'body': """
+      import React, { PureComponent } from 'react'
+
+      export default class ${1:MyComponent} extends PureComponent {
+        render() {
+          return (
+            ${2:<div>MyComponent</div>}
+          )
+        }
+      }
+    """
+
+  'React ES7 PureComponent with Proptypes':
+    'prefix': 'rpcp'
+    'body': """
+      import React, { PureComponent } from 'react'
+      import PropTypes from 'prop-types'
+
+      export default class ${1:MyComponent} extends PureComponent {
+        static propTypes = {
+          ${2}
+        }
+
+        render() {
+          return (
+            ${3:<div>MyComponent</div>}
+          )
+        }
+      }
+    """
+
+  'React ES7 PureComponent with Constructor':
+    'prefix': 'rpcc'
+    'body': """
+      import React, { PureComponent } from 'react'
+
+      export default class ${1:MyComponent} extends PureComponent {
+        constructor(props) {
+          super(props)
+
+          this.state = {
+            ${2}
+          }
+        }
+
+        render() {
+          return (
+            ${3:<div>MyComponent</div>}
+          )
+        }
+      }
+    """
+
+  'React ES7 PureComponent with Constructor and Proptypes':
+    'prefix': 'rpccp'
+    'body': """
+      import React, { PureComponent } from 'react'
+      import PropTypes from 'prop-types'
+
+      export default class ${1:MyComponent} extends PureComponent {
+        static propTypes = {
+          ${2}
+        }
+
+        constructor(props) {
+          super(props)
+
+          this.state = {
+            ${3}
+          }
+        }
+
+        render() {
+          return (
+            ${4:<div>MyComponent</div>}
+          )
+        }
+      }
+    """
+
+  'React ES7 PureComponent export':
+    'prefix': 'rpce'
+    'body': """
+      import React, { PureComponent } from 'react'
+
+      class ${1:Class} extends PureComponent {
+        render() {
+          return (
+            ${2:<div>MyComponent</div>}
+          )
+        }
+      }
+
+      export default ${1:Class}
+    """
+
+  'React ES7 PureComponent with PropTypes export':
+    'prefix': 'rpcpe'
+    'body': """
+      import React, { PureComponent } from 'react'
+      import PropTypes from 'prop-types'
+
+      class ${1:Class} extends PureComponent {
+        static propTypes = {
+          ${2}
+        }
+
+        render() {
+          return (
+            ${3:<div>MyComponent</div>}
+          )
+        }
+      }
+
+      export default ${1:Class}
+    """
+
+  'React ES7 PureComponent with Constructor export':
+    'prefix': 'rpcce'
+    'body': """
+      import React, { PureComponent } from 'react'
+
+      class ${1:MyComponent} extends PureComponent {
+        constructor(props) {
+          super(props)
+
+          this.state = {
+            ${2}
+          }
+        }
+
+        render() {
+          return (
+            ${3:<div>MyComponent</div>}
+          )
+        }
+      }
+
+      export default ${1:MyComponent}
+    """
+
+  'React ES7 PureComponent with Constructor and PropTypes export':
+    'prefix': 'rpccpe'
+    'body': """
+      import React, { PureComponent } from 'react'
+      import PropTypes from 'prop-types'
+
+      class ${1:Class} extends PureComponent {
+        static propTypes = {
+          ${2}
+        }
+
+        constructor(props) {
+          super(props)
+
+          this.state = {
+            ${3}
+          }
+        }
+
+        render() {
+          return (
+            ${4:<div>MyComponent</div>}
+          )
+        }
+      }
+
+      export default ${1:Class}
+    """
+
+  'React ES7 Functional Component':
+    'prefix': 'rfc'
+    'body': """
+      import React from 'react'
+
+      export default function ${1:MyComponent}() {
+        return (
+          ${2:<div>MyComponent</div>}
+        )
+      }
+    """
+
+  'React ES7 Functional Component with PropTypes':
+    'prefix': 'rfcp'
+    'body': """
+      import React from 'react'
+      import PropTypes from 'prop-types'
+
+      export default function ${1:MyComponent}(props) {
+        return (
+          ${3:<div>MyComponent</div>}
+        )
+      }
+
+      ${1}.propTypes = {
+        ${2}
+      }
+    """
+
+  'React ES7 Functional Component export':
+    'prefix': 'rfce'
+    'body': """
+      import React from 'react'
+
+      function ${1:MyComponent}() {
+        return (
+          ${2:<div>MyComponent</div>}
+        )
+      }
+
+      export default ${1:MyComponent}
+    """
+
+  'React ES7 Functional Component with PropTypes export':
+    'prefix': 'rfcpe'
+    'body': """
+      import React from 'react'
+      import PropTypes from 'prop-types'
+
+      function ${1:MyComponent}(props) {
+        return (
+          ${3:<div>MyComponent</div>}
+        )
+      }
+
+      ${1}.propTypes = {
+        ${2}
+      }
+
+      export default ${1:MyComponent}
+    """
+
+  'React ES7 Arrow Functional Component':
+    'prefix': 'rafc'
+    'body': """
+      import React from 'react'
+
+      const ${1:MyComponent} = () => {
+        return (
+          ${2:<div>MyComponent</div>}
+        )
+      }
+
+      export default ${1:MyComponent}
+    """
+
+  'React ES7 Arrow Functional Component with PropTypes':
+    'prefix': 'rafcp'
+    'body': """
+      import React from 'react'
+      import PropTypes from 'prop-types'
+
+      const $1 = (${3:props}) => {
+        return (
+          ${4:<div>MyComponent</div>}
+        )
+      }
+
+      ${1}.propTypes = {
+        ${2}
+      }
+
+      export default ${1}
+    """
+
+  'React ES7 Memo Functional Component':
+    'prefix': 'rmc'
+    'body': """
+      import React, { memo } from 'react'
+
+      const ${1:MyComponent} = memo(function ${1:MyComponent}() {
+        return (
+          ${2:<div>MyComponent</div>}
+        )
+      })
+
+      export default ${1:MyComponent}
+    """
+
+  'React ES7 Memo Functional Component with PropTypes':
+    'prefix': 'rmcp'
+    'body': """
+      import React, { memo } from 'react'
+      import PropTypes from 'prop-types'
+
+      const ${1:MyComponent} = memo(function ${1:MyComponent}(${3:props}) {
+        return (
+          ${4:<div>MyComponent</div>}
+        )
+      })
+
+      ${1:MyComponent}.propTypes = {
+        ${2}
+      }
+
+      export default ${1:MyComponent}
+    """
+
+  'React ES7 Constructor':
+    'prefix': 'rconst'
+    'body': """
+      constructor(props) {
+        super(props)
+
+        ${1}
       }
     """
 
@@ -114,35 +551,103 @@
     'prefix': 'rcredux'
     'body': """
       import React, { Component } from 'react'
+      import { connect } from 'react-redux'
+
+      class ${1:MyComponent} extends Component {
+        render() {
+          return (
+            ${4:<div>MyComponent</div>}
+          )
+        }
+      }
+
+      const mapStateToProps = (state) => ({
+        ${2}
+      })
+
+      const mapDispatchToProps = (dispatch) => ({
+        ${3}
+      })
+
+      export default connect(mapStateToProps, mapDispatchToProps)(${1:MyComponent})
+    """
+
+  'React ES7 Redux Container with PropTypes':
+    'prefix': 'rcredux'
+    'body': """
+      import React, { Component } from 'react'
       import PropTypes from 'prop-types'
       import { connect } from 'react-redux'
 
       class ${1:MyComponent} extends Component {
-      \tstatic propTypes = {
-      \t\t${4}
-      \t}
+        static propTypes = {
+          ${4}
+        }
 
-      \tconstructor (props) {
-      \t\tsuper(props)
-
-      \t\tthis.state = {
-      \t\t\t${5}
-      \t\t}
-      \t}
-
-      \trender () {
-      \t\treturn (
-      \t\t\t${6:<div>MyComponent</div>}
-      \t\t)
-      \t}
+        render() {
+          return (
+            ${5:<div>MyComponent</div>}
+          )
+        }
       }
 
       const mapStateToProps = (state) => ({
-      \t${2}
+        ${2}
       })
 
       const mapDispatchToProps = (dispatch) => ({
-      \t${3}
+        ${3}
+      })
+
+      export default connect(mapStateToProps, mapDispatchToProps)(${1:MyComponent})
+    """
+
+  'React ES7 Function Redux Container':
+    'prefix': 'rfcredux'
+    'body': """
+      import React, { Component } from 'react'
+      import { connect } from 'react-redux'
+
+      function ${1:MyComponent}(props) {
+        return (
+          ${4:<div>MyComponent</div>}
+        )
+      }
+
+      const mapStateToProps = (state) => ({
+        ${2}
+      })
+
+      const mapDispatchToProps = (dispatch) => ({
+        ${3}
+      })
+
+      export default connect(mapStateToProps, mapDispatchToProps)(${1:MyComponent})
+    """
+
+  'React ES7 Function Redux Container with PropTypes':
+    'prefix': 'rfcredux'
+    'body': """
+      import React, { Component } from 'react'
+      import PropTypes from 'prop-types'
+      import { connect } from 'react-redux'
+
+      function ${1:MyComponent}(props) {
+        return (
+          ${5:<div>MyComponent</div>}
+        )
+      }
+
+      ${1:MyComponent}.propTypes = {
+        ${2}
+      }
+
+      const mapStateToProps = (state) => ({
+        ${3}
+      })
+
+      const mapDispatchToProps = (dispatch) => ({
+        ${4}
       })
 
       export default connect(mapStateToProps, mapDispatchToProps)(${1:MyComponent})
@@ -152,208 +657,178 @@
     'prefix': 'rcreduxd'
     'body': """
       import React, { Component } from 'react'
+      import { connect } from 'react-redux'
+
+      @connect(
+        state => ({ ${2} })
+      )
+      export default class ${1:MyComponent} extends Component {
+        render() {
+          return (
+            ${3:<div>MyComponent</div>}
+          )
+        }
+      }
+    """
+
+  'React ES7 Redux Container Decorator with PropTypes':
+    'prefix': 'rcreduxdp'
+    'body': """
+      import React, { Component } from 'react'
       import PropTypes from 'prop-types'
       import { connect } from 'react-redux'
 
       @connect(
-      \tstate => ({ ${2} })
+        state => ({ ${2} })
       )
       export default class ${1:MyComponent} extends Component {
-      \tstatic propTypes = {
-      \t\t${3}
-      \t}
+        static propTypes = {
+          ${3}
+        }
 
-      \tconstructor (props) {
-      \t\tsuper(props)
-
-      \t\tthis.state = {
-      \t\t\t${4}
-      \t\t}
-      \t}
-
-      \trender () {
-      \t\treturn (
-      \t\t\t${5:<div>MyComponent</div>}
-      \t\t)
-      \t}
+        render() {
+          return (
+            ${4:<div>MyComponent</div>}
+          )
+        }
       }
     """
 
-  'React ES7 Relay Container':
-    'prefix': 'rcrelay'
+  'React ES7 Component Relay createFragmentContainer':
+    'prefix': 'rcrelayfc'
     'body': """
       import React, { Component } from 'react'
       import PropTypes from 'prop-types'
-      import Relay from 'react-relay'
+      import { createFragmentContainer, graphql } from 'react-relay'
 
       class ${1:MyComponent} extends Component {
-      \tstatic propTypes = {
-      \t\t${2:viewer}: PropTypes.object.isRequired
-      \t}
+        static propTypes = {
+          ${2:viewer}: PropTypes.object.isRequired
+        }
 
-      \trender () {
-      \t\treturn (
-      \t\t\t${5:<div>MyComponent</div>}
-      \t\t)
-      \t}
+        render() {
+          return (
+            ${5:<div>MyComponent</div>}
+          )
+        }
       }
 
-      export default Relay.createContainer(${1:MyComponent}, {
-      \tfragments: {
-      \t\t${2:viewer}: () => Relay.QL`
-      \t\t\tfragment on ${3:Viewer} {
-      \t\t\t\t${4:id}
-      \t\t\t}
-      \t\t`
-      \t}
+      export default createFragmentContainer(${1:MyComponent}, {
+        ${2:viewer}: graphql`
+          fragment ${1:MyComponent}_${2:viewer} on ${3:Viewer} {
+            ${4:id}
+          }
+        `
       })
     """
 
-  'React ES7 Relay Container initialVariables':
-    'prefix': 'rcrelayv'
+  'React ES7 Component Relay createRefetchContainer':
+    'prefix': 'rcrelayrc'
     'body': """
       import React, { Component } from 'react'
       import PropTypes from 'prop-types'
-      import Relay from 'react-relay'
+      import { createRefetchContainer, graphql } from 'react-relay'
 
       class ${1:MyComponent} extends Component {
-      \tstatic propTypes = {
-      \t\t${2:viewer}: PropTypes.object.isRequired
-      \t}
+        static propTypes = {
+          relay: PropTypes.object.isRequired,
+          ${2:todo}: PropTypes.object.isRequired
+        }
 
-      \trender () {
-      \t\treturn (
-      \t\t\t${6:<div>MyComponent</div>}
-      \t\t)
-      \t}
+        render() {
+          return (
+            ${5:<div>MyComponent</div>}
+          )
+        }
       }
 
-      export default Relay.createContainer(${1:MyComponent}, {
-      \tinitialVariables: {
-      \t\t${4}
-      \t},
-      \tfragments: {
-      \t\t${2:viewer}: () => Relay.QL`
-      \t\t\tfragment on ${3:Viewer} {
-      \t\t\t\t${5:id}
-      \t\t\t}
-      \t\t`
-      \t}
-      })
-    """
-
-  'React ES7 Relay Container prepareVariables':
-    'prefix': 'rcrelayvp'
-    'body': """
-      import React, { Component } from 'react'
-      import PropTypes from 'prop-types'
-      import Relay from 'react-relay'
-
-      class ${1:MyComponent} extends Component {
-
-      \tstatic propTypes = {
-      \t\t${2:viewer}: PropTypes.object.isRequired
-      \t}
-
-      \trender () {
-      \t\treturn (
-      \t\t\t${8:<div>MyComponent</div>}
-      \t\t)
-      \t}
-      }
-
-      export default Relay.createContainer(${1:MyComponent}, {
-      \tinitialVariables: {
-      \t\t${4}
-      \t},
-      \tprepareVariables(prevVariables) {
-      \t\tconst ${5:include} = !!prevVariables.${6:variable}
-      \t\treturn {
-      \t\t\t...prevVariables,
-      \t\t\t${5:include}
-      \t\t}
-      \t},
-      \tfragments: {
-      \t\t${2:viewer}: () => Relay.QL`
-      \t\t\tfragment on ${3:Viewer} {
-      \t\t\t\t${7:id}
-      \t\t\t}
-      \t\t`
-      \t}
-      })
-    """
-
-  'React ES7 Component export':
-    'prefix': 'rce'
-    'body': """
-      import React, { Component } from 'react'
-      import PropTypes from 'prop-types'
-
-      class ${1:Class} extends Component {
-      \tstatic propTypes = {
-      \t\t${2}
-      \t}
-
-      \tconstructor (props) {
-      \t\tsuper(props)
-
-      \t\tthis.state = {
-      \t\t\t${3}
-      \t\t}
-      \t}
-
-      \trender () {
-      \t\treturn (
-      \t\t\t${4:<div>MyComponent</div>}
-      \t\t)
-      \t}
-      }
-
-      export default ${1:Class}
-    """
-
-  'React ES7 Functional Component':
-    'prefix': 'rfunc'
-    'body': """
-      import React from 'react'
-      import PropTypes from 'prop-types'
-
-      export default function ${1} (${3:props}) {
-      \treturn (
-      \t\t${4:<div>MyComponent</div>}
-      \t)
-      }
-
-      ${1}.propTypes = {
-      \t${2}
-      }
-    """
-
-  'React ES7 Functional Arrow Component':
-    'prefix': 'rarrow'
-    'body': """
-      import React from 'react'
-      import PropTypes from 'prop-types'
-
-      const $1 = (${3:props}) => (
-      \t${4:<div />}
+      export default createRefetchContainer(${1:MyComponent},
+        {
+          ${2:todo}: graphql`
+            fragment ${1:MyComponent}_${2:todo} on ${3:Todo} {
+              ${4:id}
+            }
+          `
+        },
+        graphql`
+          query ${1:MyComponent}RefetchQuery(\$${2:todo}ID: ID!) {
+            ${2:todo}: node(id: \$${2:todo}ID) {
+              ...${1:MyComponent}_${2:todo}
+            }
+          }
+        `
       )
-
-      ${1}.propTypes = {
-      \t${2}
-      }
-
-      export default ${1}
     """
 
-  'React ES7 Constructor':
-    'prefix': 'rconst'
+  'React ES7 Component Relay createPaginationContainer':
+    'prefix': 'rcrelaypc'
     'body': """
-      constructor (props) {
-      \tsuper(props)
+      import React, { Component } from 'react'
+      import PropTypes from 'prop-types'
+      import { createPaginationContainer, graphql } from 'react-relay'
 
-      \t${1}
+      class ${1:Todos} extends Component {
+        static propTypes = {
+          ${2:todo}: PropTypes.object.isRequired
+        }
+
+        render() {
+          return (
+            ${6:<div>Todos</div>}
+          )
+        }
       }
+
+      export default createPaginationContainer(${1:Todos},
+        {
+          ${2:viewer}: graphql`
+            fragment ${1:Todos}_${2:viewer} on ${3:Todo} @argumentDefinitions(
+              count: {type: "Int", defaultValue: 10}
+              cursor: {type: "String"}
+            ) {
+              ${4:todos}(
+                first: \$count
+                after: \$cursor
+              ) @connection(key: "${1:Todos}_${4:todos}", filters: []) {
+                edges {
+                  cursor
+                  node {
+                    ${5:id}
+                  }
+                }
+              }
+            }
+          `
+        },
+        {
+          direction: 'forward',
+          getConnectionFromProps(props) {
+            return props.${2:viewer} && props.${2:viewer}.${4:todos}
+          },
+          getFragmentVariables(prevVars, totalCount) {
+            return {
+              ...prevVars,
+              count: totalCount
+            }
+          },
+          getVariables(props, { count, cursor }, fragmentVariables) {
+            return {
+              count,
+              cursor
+            }
+          },
+          query: graphql`
+            query ${1:Todos}Query(
+              \$count: Int
+              \$cursor: String
+            ) {
+              ${2:viewer} {
+                ...${1:Todos}_${2:viewer} @arguments(count: \$count, cursor: \$cursor)
+              }
+            }
+            `
+        }
+      )
     """
 
   'React ES6 bind method to this':
@@ -371,56 +846,83 @@
   'React componentWillMount (ES7)':
     'prefix': 'cwm'
     'body': """
-      componentWillMount () {
-      \t${1}
+      componentWillMount() {
+        ${1}
       }
     """
 
   'React componentDidMount (ES7)':
     'prefix': 'cdm'
     'body': """
-      componentDidMount () {
-      \t${1}
+      componentDidMount() {
+        ${1}
       }
     """
 
   'React componentWillReceiveProps (ES7)':
     'prefix': 'cwr'
     'body': """
-      componentWillReceiveProps (nextProps) {
-      \t${1}
+      componentWillReceiveProps(nextProps) {
+        ${1}
       }
     """
 
   'React shouldComponentUpdate (ES7)':
     'prefix': 'scu'
     'body': """
-      shouldComponentUpdate (nextProps, nextState) {
-      \t${1}
+      shouldComponentUpdate(nextProps, nextState) {
+        ${1}
       }
     """
 
   'React componentWillUpdate (ES7)':
     'prefix': 'cwu'
     'body': """
-      componentWillUpdate (nextProps, nextState) {
-      \t${1}
+      componentWillUpdate(nextProps, nextState) {
+        ${1}
       }
     """
 
   'React componentDidUpdate (ES7)':
     'prefix': 'cdu'
     'body': """
-      componentDidUpdate (prevProps, prevState) {
-      \t${1}
+      componentDidUpdate(prevProps, prevState) {
+        ${1}
       }
     """
 
   'React componentWillUnmount (ES7)':
     'prefix': 'cwun'
     'body': """
-      componentWillUnmount () {
-      \t${1}
+      componentWillUnmount() {
+        ${1}
+      }
+    """
+
+  'React getSnapshotBeforeUpdate (ES7)':
+    'prefix': 'cwun'
+    'body': """
+      getSnapshotBeforeUpdate(prevProps, prevState) {
+        ${1}
+      }
+    """
+
+  'React getChildContext (ES7)':
+    'prefix': 'gcct'
+    'body': """
+      getChildContext() {
+        return ${1}
+      }
+    """
+
+
+  'React render() { return () } (ES7)':
+    'prefix': 'gcct'
+    'body': """
+      render() {
+        return (
+          ${1}
+        )
       }
     """
 
@@ -436,7 +938,7 @@
     'prefix': 'cx'
     'body': """
       cx({
-      \t${1}: ${2}
+        ${1}: ${2}
       })
     """
 
@@ -444,7 +946,7 @@
     'prefix': 'dp'
     'body': """
       static defaultProps = {
-      \t${1}
+        ${1}
       }
     """
 
@@ -452,7 +954,7 @@
     'prefix': 'pt'
     'body': """
       static propTypes = {
-      \t${1}: PropTypes.${2:string}
+        ${1}: PropTypes.${2:string}
       }
     """
 
@@ -460,7 +962,7 @@
     'prefix': 'ct'
     'body': """
       static contextTypes = {
-      \t${1}: PropTypes.${2:string}
+        ${1}: PropTypes.${2:string}
       }
     """
 
@@ -468,15 +970,15 @@
     'prefix': 'cct'
     'body': """
       static childContextTypes = {
-      \t${1}: PropTypes.${2:string}
+        ${1}: PropTypes.${2:string}
       }
     """
 
-  'React getChildContext (ES7)':
-    'prefix': 'gcct'
+  'React static getDerivedStateFromProps(props, state) (ES7)':
+    'prefix': 'gdsfp'
     'body': """
-      getChildContext () {
-      \treturn ${1}
+      static getDerivedStateFromProps(props, state) {
+        ${1}
       }
     """
 
@@ -484,7 +986,25 @@
     'prefix': 'sst'
     'body': """
       this.setState({
-      \t${1}: ${2}
+        ${1}: ${2}
+      })
+    """
+
+  'React setState((state, props) => { return {} }) (ES7)':
+    'prefix': 'sstf'
+    'body': """
+      this.setState((state) => {
+        return { $1: $2 }
+      })
+    """
+
+  'React setState({ ... }, () => { ... }) (ES7)':
+    'prefix': 'sstcb'
+    'body': """
+      this.setState({
+        $1: $2
+      }, () => {
+        $3
       })
     """
 
@@ -553,50 +1073,50 @@
     'body': 'PropTypes.element.isRequired'
 
   # PropType instanceOf
-  'PropTypes.instanceOf':
+  'PropTypes.instanceOf(name)':
     'prefix': 'pti'
     'body': 'PropTypes.instanceOf(${1})'
-  'PropTypes.instanceOf.isRequired':
+  'PropTypes.instanceOf(name).isRequired':
     'prefix': 'ptir'
     'body': 'PropTypes.instanceOf(${1}).isRequired'
 
   # PropType oneOf
-  'PropTypes.oneOf':
+  'PropTypes.oneOf([name])':
     'prefix': 'ptof'
     'body': 'PropTypes.oneOf([${1}])'
-  'PropTypes.oneOf.isRequired':
+  'PropTypes.oneOf([name]).isRequired':
     'prefix': 'ptofr'
     'body': 'PropTypes.oneOf([${1}]).isRequired'
 
   # PropType oneOfType
-  'PropTypes.oneOfType':
+  'PropTypes.oneOfType([name])':
     'prefix': 'ptoft'
     'body': """
       PropTypes.oneOfType([
-      \t${1}
+        ${1}
       ])
     """
-  'PropTypes.oneOfType.isRequired':
+  'PropTypes.oneOfType([name]).isRequired':
     'prefix': 'ptoftr'
     'body': """
       PropTypes.oneOfType([
-      \t${1}
+        ${1}
       ]).isRequired
     """
 
   # PropType arrayOf
-  'PropTypes.arrayOf':
+  'PropTypes.arrayOf(name)':
     'prefix': 'ptao'
     'body': 'PropTypes.arrayOf(${1})'
-  'PropTypes.arrayOf.isRequired':
+  'PropTypes.arrayOf(name).isRequired':
     'prefix': 'ptaor'
     'body': 'PropTypes.arrayOf(${1}).isRequired'
 
   # PropType objectOf
-  'PropTypes.objectOf':
+  'PropTypes.objectOf(name)':
     'prefix': 'ptobjo'
     'body': 'PropTypes.objectOf(${1})'
-  'PropTypes.objectOf.isRequired':
+  'PropTypes.objectOf(name).isRequired':
     'prefix': 'ptobjor'
     'body': 'PropTypes.objectOf(${1}).isRequired'
 
@@ -605,14 +1125,30 @@
     'prefix': 'ptshape'
     'body': """
       PropTypes.shape({
-      \t${1}
+        ${1}
       })
     """
   'PropTypes.shape({...}).isRequired':
     'prefix': 'ptshaper'
     'body': """
       PropTypes.shape({
-      \t${1}
+        ${1}
+      }).isRequired
+    """
+
+  # PropType exact
+  'PropTypes.exact({...})':
+    'prefix': 'ptexact'
+    'body': """
+      PropTypes.exact({
+        ${1}
+      })
+    """
+  'PropTypes.exact({...}).isRequired':
+    'prefix': 'ptexactr'
+    'body': """
+      PropTypes.exact({
+        ${1}
       }).isRequired
     """
 
