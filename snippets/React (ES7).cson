@@ -1,4 +1,4 @@
-'.source.js, .source.jsx':
+'.source.js, .source.jsx, .source.ts, .source.tsx':
   'import React':
     'prefix': 'imr'
     'body': """
